@@ -1,6 +1,6 @@
-# Base Node.js Project Template
+# Aero Booking
 
-Welcome to the Base Node.js Project Template! This template follows coding principles and project management recommendations to help you kickstart your Node.js projects. Feel free to customize it to suit your specific needs.
+This project provides the core functionality for a flight booking application. It handles flight searches, booking, payment processing, and other backend operations. The system manages flight schedules, inventory, pricing, and user data. It exposes APIs for frontend applications to interact with the flight booking system. Feel free to customize it to suit your specific needs.
 
 ## Project Structure
 
@@ -31,4 +31,4 @@ To set up the project, follow these steps:
 5. Update the `config.json` file with the appropriate database credentials and dialect for your development, test, or production environment.
 6. Run the server using `npm run dev`.
 
-That's it! You're now ready to start building your Node.js project using this template.
+That's it! You are ready to go.
