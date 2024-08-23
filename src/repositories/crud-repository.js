@@ -52,7 +52,7 @@ class CrudRepository{
         }
     }
 
-    async update(id,data) { //data-->{col: value, ....}
+    async update(id,data) {   //data-->{col: value, ....}
         try {
             const response = await this.model.create(data, {
                 where: {
