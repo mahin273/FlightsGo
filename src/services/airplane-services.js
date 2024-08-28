@@ -23,6 +23,14 @@ async function createAirplane(data) {
     }
 }
 
+async function getAirplanes() {
+    try {
+        const airplanes = await airplaneRespository.getAll();
+    } catch (error) {
+        throw new AppError('Cannot fetch the data of all the airplanes', StatusCodes.INTERNAL_SERVER_ERROR);
+    }
+}
 module.exports = {
-    createAirplane
+    createAirplane,
+    getAirplanes
 }

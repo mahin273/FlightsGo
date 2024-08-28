@@ -4,8 +4,8 @@
   "description": "A basic starter boilerplate project for node",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon \"d:\\Aero_Backend\\src\\index.js\"",
-    "devl": "nodemon \"/mnt/1826B40C26B3E8C0/Aero_Backend/src/index.js\""
+    "dev": "nodemon \"d:\\FlightsGO\\src\\index.js\"",
+    "devl": "nodemon \"/mnt/1826B40C26B3E8C0/FlightsGO/src/index.js\""
   },
   "author": "Mahin",
   "license": "ISC",
