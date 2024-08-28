@@ -1,7 +1,7 @@
 {
-  "name": "base_nodejs_project_template",
+  "name": "FlightsGO",
   "version": "1.0.0",
-  "description": "A basic starter boilerplate project for node",
+  "description": "Flights Booking Web App",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon \"d:\\FlightsGO\\src\\index.js\"",
