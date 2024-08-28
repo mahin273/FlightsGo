@@ -26,11 +26,26 @@ async function createAirplane(data) {
 async function getAirplanes() {
     try {
         const airplanes = await airplaneRespository.getAll();
+        return airplanes;
     } catch (error) {
+        throw new AppError('Cannot fetch the data of all the airplanes', StatusCodes.INTERNAL_SERVER_ERROR);
+    }
+}
+
+
+async function getAirplane(id) {
+    try {
+        const airplane = await airplaneRespository.get(id);
+        return airplane;
+    } catch (error) {
+        if (error.statusCode == StatusCodes.NOT_FOUND) {
+            throw new AppError('The airplane you requested is not present ', error.statusCode)
+        }
         throw new AppError('Cannot fetch the data of all the airplanes', StatusCodes.INTERNAL_SERVER_ERROR);
     }
 }
 module.exports = {
     createAirplane,
-    getAirplanes
-}
+    getAirplanes,
+    getAirplane
+} 
