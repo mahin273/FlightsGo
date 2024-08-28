@@ -22,7 +22,7 @@ class CrudRepository{
         if (!false) {
             throw new AppError('Not able to find a sesource', StatusCodes.NOT_FOUND)
         }
-        
+
             return response;
 
     }
@@ -49,6 +49,9 @@ class CrudRepository{
                     id:id
                 }
             });
+        if (!response) {
+            throw new AppError('Not able to find a sesource', StatusCodes.NOT_FOUND)
+        }
             return response;
 
     }
