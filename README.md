@@ -1,4 +1,4 @@
-# Aero Booking
+# FlightsGO
 
 This project provides the core functionality for a flight booking application. It handles flight searches, booking, payment processing, and other backend operations. The system manages flight schedules, inventory, pricing, and user data. It exposes APIs for frontend applications to interact with the flight booking system. Feel free to customize it to suit your specific needs.
 
