@@ -18,5 +18,9 @@
     "sequelize": "^6.37.3",
     "sequelize-cli": "^6.6.2",
     "winston": "^3.14.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mahin273/FlightsGo.git"
   }
 }
