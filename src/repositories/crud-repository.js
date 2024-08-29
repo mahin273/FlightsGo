@@ -19,7 +19,7 @@ class CrudRepository {
                 id: data
             }
         });
-        if (!false) {
+        if (!response) {
             throw new AppError('Not able to find a sesource', StatusCodes.NOT_FOUND)
         }
 

@@ -4,6 +4,8 @@ const { SuccessResponse, ErrorResponse } = require('../utils/common');
 
 
 
+
+
 /**
  * 
  * POST: /cities
@@ -73,10 +75,26 @@ async function getCity(req, res) {
     
 }
 
+async function destroyCity(req, res) {
+    try {
+        const destroy = await CityService.destroyCity(req.params.id);
+        SuccessResponse = destroy;
+        return res
+            .status(StatusCodes.OK)
+            .json(SuccessResponse);
+    } catch (error) {
+        ErrorResponse.error = error;
+        return res
+            .status(error.statusCode)
+            .json(ErrorResponse);
+    }
+    
+}
 
 
 module.exports = {
     createCity,
     getcities,
-    getCity
+    getCity,
+    destroyCity
 }
