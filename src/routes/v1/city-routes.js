@@ -17,6 +17,10 @@ router.get('/',
     CityController.getcities
 )
 
+// /api/v1/cities/id GET
+router.get('/:id',
+    CityController.getCity
+)
 
 
 module.exports = router;  

@@ -3,6 +3,7 @@ const { CityService } = require('../services');
 const { SuccessResponse, ErrorResponse } = require('../utils/common');
 
 
+
 /**
  * 
  * POST: /cities
@@ -49,8 +50,33 @@ async function getcities(req,res) {
     }
 }
 
+/**
+ * 
+ * GET: /airplanes/:id
+ * req-body {}
+ */
+
+async function getCity(req, res) {
+    try {
+        const city = await CityController.getCity();
+        SuccessResponse.data = city;
+        return res
+            .status(StatusCodes.Ok)
+            .json(SuccessResponse)
+    } catch (error) {
+        ErrorResponse.error = error;
+        return res
+            .status(error.statusCode)
+            .json(ErrorResponse);
+        
+    }
+    
+}
+
+
 
 module.exports = {
     createCity,
-    getcities
+    getcities,
+    getCity
 }
