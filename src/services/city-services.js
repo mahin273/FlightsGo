@@ -58,10 +58,24 @@ try {
     
 }
 
+async function updateCity(id, data) {
+    try {
+        const update = await cityRepository.update(id, data);
+        return update;
+    } catch (error) {
+        if (error.statusCode == StatusCodes.NOT_FOUND) {
+            throw new AppError('The City you requested to update is not present',error.statusCode)
+        }
+        throw new AppError('Cannot fetch the data of all the city');
+        
+    }
+}
+
 module.exports = {
     createCity,
     getCities,
     getCity,
-    destroyCity
+    destroyCity,
+    updateCity
     
 }

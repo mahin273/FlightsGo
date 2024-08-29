@@ -1,5 +1,5 @@
 const { StatusCodes } = require('http-status-codes');
-const { CityService } = require('../services');
+const { CityService, AirplaneService } = require('../services');
 const { SuccessResponse, ErrorResponse } = require('../utils/common');
 
 
@@ -75,6 +75,12 @@ async function getCity(req, res) {
     
 }
 
+/**
+ * 
+ * DELETE: /airplanes/:id
+ * req-body {}
+ */
+
 async function destroyCity(req, res) {
     try {
         const destroy = await CityService.destroyCity(req.params.id);
@@ -91,10 +97,35 @@ async function destroyCity(req, res) {
     
 }
 
+/**
+ * 
+ * PUT: /airplanes/:id
+ * req-body {}
+ */
+
+async function updateCity(req, res) {
+    try {
+        const update = await CityService.updateCity(req.params.id, {
+            name: req.body.name
+        });
+        SuccessResponse.data = update;
+        return res
+            .status(StatusCodes.OK)
+            .json(SuccessResponse)
+    } catch (error) {
+        ErrorResponse.error = error;
+        return res
+            .status(error.statusCode)
+            .json(ErrorResponse);
+        
+    }
+    
+}
 
 module.exports = {
     createCity,
     getcities,
     getCity,
-    destroyCity
+    destroyCity,
+    updateCity
 }
