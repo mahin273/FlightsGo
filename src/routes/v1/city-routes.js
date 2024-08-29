@@ -11,5 +11,12 @@ router.post('/',
     CityController.createCity
 );
 
+// /api/v1/cities GET
+
+router.get('/',
+    CityController.getcities
+)
+
+
 
 module.exports = router;  
