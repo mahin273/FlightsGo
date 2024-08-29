@@ -125,6 +125,21 @@ async function updateAirplane(req, res) {
     }
 }
 
+async function patchAirplane(req, res) {
+    try {
+        const update = await AirplaneService.updateAirplane(req.params.id, req.body); 
+        SuccessResponse.data = update;
+        return res
+            .status(StatusCodes.OK)
+            .json(SuccessResponse);
+
+    } catch (error) {
+        ErrorResponse.error = error;
+        return res.status(error.statusCode)
+            .json(ErrorResponse);
+    }
+}
+
 
 
 module.exports = {
@@ -132,5 +147,6 @@ module.exports = {
     getAirplanes,
     getAirplane,
     destroyAirplane,
-    updateAirplane
+    updateAirplane,
+    patchAirplane
 }

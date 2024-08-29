@@ -35,11 +35,36 @@ function validateUpdateRequest(req, res, next) {
     next();
 }
 
-module.exports = {
-    validateUpdateRequest
-};
+function validatePatchRequest(req, res, next) {
+    const errors = [];
+
+    if (!req.params.id) {
+        errors.push('ID not found in the request parameters');
+    }
+
+   
+    if (req.body.modelNumber && typeof req.body.modelNumber !== 'string') {
+        errors.push('Invalid model number format');
+    }
+
+    if (req.body.capacity && (isNaN(req.body.capacity) || typeof +req.body.capacity !== 'number')) {
+        errors.push('Invalid capacity format');
+    }
+
+    if (errors.length > 0) {
+        ErrorResponse.message = "Validation error";
+        ErrorResponse.error = new AppError(errors, StatusCodes.BAD_REQUEST);
+        return res
+            .status(StatusCodes.BAD_REQUEST)
+            .json(ErrorResponse);
+    }
+
+    next();
+}
+
 
 module.exports = {
     validateCreateRequest,
-    validateUpdateRequest
+    validateUpdateRequest,
+    validatePatchRequest
 }  

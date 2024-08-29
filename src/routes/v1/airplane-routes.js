@@ -22,4 +22,9 @@ router.put('/:id',
     AirplaneMiddelwares.validateUpdateRequest,
     AirplaneController.updateAirplane
 );
+
+router.patch('/:id',
+    AirplaneMiddelwares.validatePatchRequest,
+    AirplaneController.patchAirplane
+)
 module.exports = router;
