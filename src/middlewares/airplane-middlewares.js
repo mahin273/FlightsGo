@@ -14,25 +14,30 @@ function validateCreateRequest(req, res, next) {
 }
 
 function validateUpdateRequest(req, res, next) {
+    const errors = [];
+
     if (!req.params.id) {
-        ErrorResponse.message = "something went wrong while updating airplane";
-
-        ErrorResponse.error = new AppError(['ID not found in this upcoming request'], StatusCodes.BAD_REQUEST);
-        return res
-            .status(StatusCodes.BAD_REQUEST)
-            .json(ErrorResponse);
+        errors.push('ID not found in the request parameters');
     }
+
     if (!req.body.modelNumber) {
-        ErrorResponse.message = "something went wrong while updating airplane";
+        errors.push('Model Number not found in the request body');
+    }
 
-        ErrorResponse.error = new AppError(['Model Number not found in this upcoming request'], StatusCodes.BAD_REQUEST);
+    if (errors.length > 0) {
+        ErrorResponse.message = "Validation error";
+        ErrorResponse.error = new AppError(errors, StatusCodes.BAD_REQUEST);
         return res
             .status(StatusCodes.BAD_REQUEST)
             .json(ErrorResponse);
     }
-    
+
     next();
 }
+
+module.exports = {
+    validateUpdateRequest
+};
 
 module.exports = {
     validateCreateRequest,

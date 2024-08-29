@@ -109,8 +109,7 @@ async function destroyAirplane(req, res) {
 
 async function updateAirplane(req, res) {
     try {
-        const update = await AirplaneService.updateAirplane({
-            id: req.params.id,
+        const update = await AirplaneService.updateAirplane(req.params.id, {
             modelNumber: req.body.modelNumber,
             capacity: req.body.capacity
         });
@@ -125,6 +124,9 @@ async function updateAirplane(req, res) {
             .json(ErrorResponse);
     }
 }
+
+
+
 module.exports = {
     createAirplane,
     getAirplanes,
