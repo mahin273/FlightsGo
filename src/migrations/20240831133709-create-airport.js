@@ -1,4 +1,5 @@
 'use strict';
+
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -11,12 +12,12 @@ module.exports = {
       },
       name: {
         type: Sequelize.STRING,
-         allowNull: false,
+        allowNull: false,
         unique: true
       },
       code: {
         type: Sequelize.STRING,
-         allowNull: false,
+        allowNull: false,
         unique: true
       },
       address: {
@@ -26,7 +27,12 @@ module.exports = {
       cityId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        
+        references: {
+          model: 'Cities',
+          key: 'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
       },
       createdAt: {
         allowNull: false,
@@ -34,11 +40,11 @@ module.exports = {
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE,
-      
+        type: Sequelize.DATE
       }
     });
   },
+
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Airports');
   }
