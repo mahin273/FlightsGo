@@ -42,7 +42,8 @@ async function createFlight(req, res) {
         
     } catch (error) {
         ErrorResponse.error = error;
-        return res.status(error.statusCode)
+        return res
+            .status(error.statusCode)
             .json(ErrorResponse);
     }
      
@@ -54,11 +55,25 @@ async function createFlight(req, res) {
  * req-body {}
  */
 
+async function getAllFlights(req, res) {
+    try {
+        const flights = await FlightService.getAllFlights(req.query);
+        SuccessResponse.data = flights;
+        return res
+            .status(StatusCodes.CREATED)
+            .json(SuccessResponse);
+    } catch (error) {
+        ErrorResponse.error = error;
+        return res
+            .status(error.statusCode)
+            .json(ErrorResponse);
+    }
+}
 
 
 
 
 module.exports = {
     createFlight,
-   
+    getAllFlights
 }
