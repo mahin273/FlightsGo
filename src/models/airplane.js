@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: 'CASCADE'
       });
       this.belongsTo(models.Seat, {
-        foreignKey: 'airplaneId',
+        foreignKey: 'id',
         as:'airplaneDetail'
       });
     }
