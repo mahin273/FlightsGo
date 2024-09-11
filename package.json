@@ -4,8 +4,7 @@
   "description": "Flights Booking Web App",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon \"d:\\FlightsGO\\src\\index.js\"",
-    "devl": "nodemon \"/mnt/1826B40C26B3E8C0/FlightsGO/src/index.js\""
+    "dev": "nodemon src/index.js"
   },
   "author": "Mahin",
   "license": "ISC",
